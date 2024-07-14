@@ -1,0 +1,34 @@
+<!-- sticky_note/templates/notes/index.html -->
+{% extends 'base.html' %}
+
+{% block title %}Sticky Notes - {{ page_title }}{% endblock %}
+
+{% block content %}
+<section>
+    <ul>
+        {% for note in notes %}
+       <!-- <li> --> 
+            <div class="card text-center" style="width: 40rem;">
+                <div class="card-body">
+                  <h5 class="card-title">{{ note.title }}</h5>
+                  <p class="card-text">{{ note.content }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item blockquote-footer"> {{ note.author }}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="{% url 'note_detail' pk=note.pk %}" class="btn btn-primary">View</a>
+                  <a href="{% url 'delete_note' pk=note.pk %}" class="btn btn-primary">Delete</a>
+                </div>
+              </div>
+        <!--</li> -->
+        {% endfor %}
+    </ul>
+    <div>
+        <a href="{% url 'create_note' %}" class="btn btn-primary">Add Note</a> 
+    </div>
+</section>
+{% endblock %}
+</a>
+    </div>
+</div>

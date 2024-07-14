@@ -1,0 +1,21 @@
+<!-- sticky_note/templates/notes/note_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Sticky Notes - {{ note.title }}{% endblock %}
+
+{% block content %}
+<section>
+     <div class="card text-center" style="width: 50rem;">
+          <h5 class="card-header">{{ note.title }}</h5>
+          <div class="card-body">
+            <p class="card-text">{{ note.content }}</p>
+            <a href="{% url 'note_update' pk=note.pk %}" class="btn btn-primary">Edit Note</a>
+            <a href="{% url 'note_list' %}" class="btn btn-primary">Go Back</a>
+          </div>
+          <div class="card-footer text-muted">
+               Created at: {{ note.created_at }}
+          </div>
+        </div>
+</section>
+{% endblock %} 
